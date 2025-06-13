@@ -5,7 +5,7 @@ const projects = [
     id: 1,
     title: "BudgetBuddy",
     description: "A MERN stack expense tracker that helps users efficiently manage and visualize their spending with interactive Chart.js graphs.",
-    image: "/projects/dashboard.png",
+    image: "projects/dashboard.png",
     tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Chart.js"],
     githubUrl: "#",
   },
@@ -14,7 +14,7 @@ const projects = [
     title: "Youtube Video Summarizer",
     description:
       "A Python app using Google Gemini Pro and Streamlit to generate concise summaries of YouTube videos with the power of LLMs.",
-    image: "/projects/teded.png",
+    image: "projects/teded.png",
     tags: ["Python", "Streamlit", "Google Gemini API"],
     githubUrl: "#",
   },
@@ -23,7 +23,7 @@ const projects = [
     title: "YWCA Scheduling Website",
     description:
       "Collaborated with the YWCA non-profit to develop a robust scheduling website for comprehensive kitchen scheduling and management using MERN stack.",
-    image: "/projects/ywcanew.png",
+    image: "projects/ywcanew.png",
     tags: ["MongoDB", "React.js", "Node.js", "Express.js"],
     githubUrl: "#",
   },
