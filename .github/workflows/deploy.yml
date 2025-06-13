@@ -1,45 +1,39 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
-# Trigger on pushes to your main branch (adjust if yours is called "master")
 on:
   push:
     branches:
-      - main
+      - main   # or your default branch
 
-# Grant the actions bot permission to push to Pages
 permissions:
   contents: read        # for checkout
-  pages: write          # to push to gh-pages
-  id-token: write       # for pages action
+  pages: write          # to publish
+  id-token: write       # for the pages action
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the code
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # 1) Check out the repo
+      - uses: actions/checkout@v4
 
-      # 2. Install node & dependencies
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      # 2) Install Node.js and dependencies
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
+      - run: npm ci
 
-      - name: Install dependencies
-        run: npm ci
+      # 3) Build with Vite
+      - run: npm run build
 
-      # 3. Build the Vite app
-      - name: Build
-        run: npm run build
+      # 4) Configure Pages
+      - uses: actions/configure-pages@v3
 
-      # 4. Deploy to gh-pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # 5) Upload the build output
+      - uses: actions/upload-pages-artifact@v1
         with:
-          # built‑in token has pages: write per our permissions block
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          # optional: if you want a custom commit message
-          commit_message: "chore: deploy site via GitHub Actions"
+          path: ./dist
+
+      # 6) Deploy to GitHub Pages
+      - uses: actions/deploy-pages@v1
