@@ -5,7 +5,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/Personal-Website/", // 👈 Add this line (must match your GitHub repo name)
+  base: "/Personal-Website",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
