@@ -1,39 +1,40 @@
-name: Build and Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+name: Build and deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main   # or your default branch
+      - main  # change if your default branch is different
 
 permissions:
-  contents: read        # for checkout
-  pages: write          # to publish
-  id-token: write       # for the pages action
+  contents: read       # for checkout
+  pages: write         # to publish
+  id-token: write      # for the pages action
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1) Check out the repo
+      # 1. Checkout your repo
       - uses: actions/checkout@v4
 
-      # 2) Install Node.js and dependencies
+      # 2. Setup Node.js
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - run: npm ci
+          node-version: "18"
 
-      # 3) Build with Vite
+      # 3. Install & build
+      - run: npm ci
       - run: npm run build
 
-      # 4) Configure Pages
+      # 4. Configure GitHub Pages
       - uses: actions/configure-pages@v3
 
-      # 5) Upload the build output
-      - uses: actions/upload-pages-artifact@v1
+      # 5. Upload the built site (uses pages–specific artifact, not upload-artifact)
+      - uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist
+          path: dist
 
-      # 6) Deploy to GitHub Pages
+      # 6. Deploy to GitHub Pages
       - uses: actions/deploy-pages@v1
