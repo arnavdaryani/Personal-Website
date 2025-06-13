@@ -102,7 +102,7 @@ export const AboutSection = () => {
         {/* Download CV Button */}
         <div>
           <a
-            href="../../public/ArnavDaryaniResume.pdf"
+            href="public/ArnavDaryaniResume.pdf"
             target="_blank"
             className="inline-flex items-center gap-4 px-10 py-5 text-xl bg-primary text-background font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25"
           >
