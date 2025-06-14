@@ -4,6 +4,7 @@ import { StarBackground } from "@/components/StarBackground";
 import { AboutSection } from "../components/AboutSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactPage } from "../components/ContactSection";
+import { ExperienceSection } from "../components/ExperienceSection";
 
 export const Home = () => {
   return (
@@ -18,6 +19,7 @@ export const Home = () => {
       {/* Main Content */}
       <main>
         <AboutSection />
+        <ExperienceSection />
         <ProjectsSection />
         <ContactPage />
       </main>
