@@ -1,5 +1,3 @@
-import React from "react";
-
 const experiences = [
   {
     id: 1,
@@ -7,22 +5,12 @@ const experiences = [
     company: "Ernst & Young LLP | Chicago, IL",
     period: "June 2025 - Present",
     description: [
-      "Platform Development @ Indirect Tax Technology"
+      "Indirect Tax Technology"
     ],
-    image: "experience/ey.png" // Add your EY logo image
+    image: "experience/ey.png"
   },
   {
     id: 2,
-    title: "Undergraduate Teaching Assistant - Computer Architecture",
-    company: "Purdue University | West Lafayette, IN",
-    period: "Jan 2025 - May 2025",
-    description: [
-      "Led weekly labs and office hours for 700+ students, improving comprehension of computer architecture concepts including digital logic, circuits, compiler creation, and ARM assembly programming."
-    ],
-    image: "experience/purdue.png" // Add your Purdue logo image
-  },
-  {
-    id: 3,
     title: "Undergraduate Research Assistant - VIPER Lab",
     company: "Purdue University | West Lafayette, IN",
     period: "August 2024 - December 2024",
@@ -32,7 +20,20 @@ const experiences = [
         "Engineered a Contour Edge Detection algorithm with 95% accuracy on 200+ images for empty-square detection.",
         "Trained and optimized a CNN with TensorFlow, reducing classification errors through confusion matrix analysis."
     ],
-    image: "experience/purdue.png" // Add your Purdue logo image
+    image: "experience/purdue.png"
+  },
+  {
+    id: 3,
+    title: "Undergraduate Teaching Assistant",
+    company: "Purdue University | West Lafayette, IN",
+    period: "Fall 2024 - Present",
+    description: [
+      "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
+      "CS 250: Computer Architecture (Spring '25, Fall '25)",
+      "CS 182: Foundations of Computer Science (Spring '26)",
+      "CS 193: Tools (Fall '24)"
+    ],
+    image: "experience/purdue.png"
   },
   {
     id: 4,
@@ -44,7 +45,7 @@ const experiences = [
         "Configured and optimized IS-IS for IPv6, enabling dual-stack integration and boosting routing efficiency.",
         "Developed comprehensive IPv6 test cases that doubled test coverage and enhanced system reliability."
     ],
-    image: "experience/ciena.png" // Add your Ciena logo image
+    image: "experience/ciena.png"
   },
   {
     id: 5,
@@ -56,7 +57,7 @@ const experiences = [
         "Imputed missing data using PyCaret, improving data completeness by 25% and enhancing risk model accuracy.",
         "Created a PowerBI dashboard delivering live risk forecasts, enabling proactive supply chain issue management."
     ],
-    image: "experience/caterpillar.png" // Add your Caterpillar logo image
+    image: "experience/caterpillar.png"
   }
 ];
 

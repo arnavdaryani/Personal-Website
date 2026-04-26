@@ -66,7 +66,7 @@ export const AboutSection = () => {
             Arnav Daryani
           </h1>
           <div className="text-3xl md:text-4xl">
-            <span className="text-muted-foreground">And I'm &nbsp;</span>
+            <span className="text-muted-foreground">And I&apos;m &nbsp;</span>
             <span className="text-primary font-semibold">{text}</span>
             {!isFinished && <span className="blinking-cursor">|</span>}
           </div>
@@ -74,10 +74,10 @@ export const AboutSection = () => {
 
         {/* Bio */}
         <p className="text-muted-foreground text-2xl leading-relaxed max-w-2xl mx-auto">
-        I am a rising junior at Purdue University, majoring in Computer Science with a concentration in Machine Learning, along with minors in Mathematics, and Economics.
+        I am a junior at Purdue University, majoring in Computer Science with concentrations in Machine Learning, and Algorithmic Foundations, along with minors in Mathematics, and Economics.
         </p>
         <p className="text-muted-foreground text-2xl leading-relaxed max-w-2xl mx-auto">
-        I have a strong passion for full-stack development and building end-to-end software solutions.
+        I have a strong passion for building end-to-end software solutions.
         </p>
         {/* Social Links */}
         <div className="flex space-x-6 justify-center">
@@ -102,8 +102,9 @@ export const AboutSection = () => {
         {/* Download CV Button */}
         <div>
           <a
-            href="/Personal-Website/ArnavDaryaniResume.pdf"
+            href="https://drive.google.com/file/d/resume-placeholder/view?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-4 px-10 py-5 text-xl bg-primary text-background font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25"
           >
             <Download size={24} />

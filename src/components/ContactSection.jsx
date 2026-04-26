@@ -69,7 +69,7 @@ export const ContactPage = () => {
               Message Sent Successfully!
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Thank you for reaching out. I'll get back to you as soon as possible.
+              Thank you for reaching out. I&apos;ll get back to you as soon as possible.
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
