@@ -15,6 +15,43 @@ const experiences = [
   },
   {
     id: 2,
+    title: "Undergraduate Research Assistant",
+    subtitle: "Advisor: Prof. Andres Bejarano",
+    company: "Purdue University | West Lafayette, IN",
+    period: "January 2026 - Present",
+    description: [
+      "Analyzing AI usage patterns among students to understand adoption behaviors and educational outcomes.",
+    ],
+    image: "experience/purdue-cs.png",
+  },
+  {
+    id: 3,
+    title: "Undergraduate Research Assistant",
+    subtitle: "Advisor: Prof. Dan Goldwasser",
+    company: "Purdue University | West Lafayette, IN",
+    period: "January 2026 - Present",
+    description: [
+      "Built benchmarking pipelines for graph-conditioned LLMs, enabling systematic evaluation of graph-based context against text-only and context-enriched baselines on socially grounded sentiment analysis tasks.",
+      "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
+    ],
+    image: "experience/purdue-cs.png",
+  },
+  {
+    id: 4,
+    title: "Undergraduate Teaching Assistant",
+    company: "Purdue University | West Lafayette, IN",
+    period: "August 2024 - Present",
+    description: [
+      "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
+      "CS 250: Computer Architecture (Spring '25, Fall '25)",
+      "CS 182: Foundations of Computer Science (Spring '26)",
+      "CS 193: Tools (Fall '24)",
+    ],
+    noBullet: true,
+    image: "experience/purdue-cs.png",
+  },
+  {
+    id: 5,
     title: "Undergraduate Research Assistant - VIPER Lab",
     company: "Purdue University | West Lafayette, IN",
     period: "August 2024 - December 2024",
@@ -27,21 +64,7 @@ const experiences = [
     image: "experience/purdue.png",
   },
   {
-    id: 3,
-    title: "Undergraduate Teaching Assistant",
-    company: "Purdue University | West Lafayette, IN",
-    period: "Fall 2024 - Present",
-    description: [
-      "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
-      "CS 250: Computer Architecture (Spring '25, Fall '25)",
-      "CS 182: Foundations of Computer Science (Spring '26)",
-      "CS 193: Tools (Fall '24)",
-    ],
-    noBullet: true,
-    image: "experience/purdue.png",
-  },
-  {
-    id: 4,
+    id: 6,
     title: "Software Engineer Intern",
     company: "Ciena | Remote",
     period: "June 2024 - August 2024",
@@ -53,7 +76,7 @@ const experiences = [
     image: "experience/ciena.png",
   },
   {
-    id: 5,
+    id: 7,
     title: "Undergraduate Research Assistant",
     company: "Caterpillar | West Lafayette, IN",
     period: "August 2023 - May 2024",
@@ -68,7 +91,6 @@ const experiences = [
 
 export const ExperienceSection = () => (
   <section id="experience" className="py-24 px-4 sm:px-8 relative overflow-hidden">
-    {/* Subtle background glow */}
     <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5 pointer-events-none" />
 
     <div className="max-w-3xl mx-auto relative z-10">
@@ -77,7 +99,6 @@ export const ExperienceSection = () => (
       </h2>
 
       <div className="relative">
-        {/* Vertical timeline line */}
         <div className="absolute left-6 top-3 bottom-3 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
 
         <div className="space-y-6">
@@ -103,7 +124,7 @@ const ExperienceCard = ({ exp, index }) => {
         transitionDelay: `${index * 80}ms`,
       }}
     >
-      {/* Company logo node — centered on the timeline line (line is at left-6=24px, icon is w-12=48px at left-0, center=24px) */}
+      {/* Company logo node — w-12=48px at left-0, center at 24px; line is at left-6=24px */}
       <div className="absolute left-0 top-5 w-12 h-12 rounded-full bg-card border-2 border-primary/30 flex items-center justify-center z-10 shadow-lg shadow-primary/10">
         <img
           src={exp.image}
@@ -126,7 +147,10 @@ const ExperienceCard = ({ exp, index }) => {
             <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
               {exp.title}
             </h3>
-            <p className="text-primary text-sm font-medium mt-0.5">{exp.company}</p>
+            {exp.subtitle && (
+              <p className="text-xs text-muted-foreground mt-0.5">{exp.subtitle}</p>
+            )}
+            <p className="text-primary text-sm font-medium mt-1">{exp.company}</p>
           </div>
           <span className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
             {exp.period}
