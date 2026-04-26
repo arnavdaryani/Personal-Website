@@ -5,7 +5,9 @@ const experiences = [
     company: "Ernst & Young LLP | Chicago, IL",
     period: "June 2025 - Present",
     description: [
-      "Indirect Tax Technology"
+      "Developed a .NET Core tool integrating REST APIs to automate STEP matching, reducing manual work by 40%.",
+      "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
+      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets."
     ],
     image: "experience/ey.png"
   },
@@ -33,6 +35,7 @@ const experiences = [
       "CS 182: Foundations of Computer Science (Spring '26)",
       "CS 193: Tools (Fall '24)"
     ],
+    noBullet: true,
     image: "experience/purdue.png"
   },
   {
@@ -144,7 +147,7 @@ const MobileCard = ({ exp }) => (
     <ul className="space-y-3 text-base text-muted-foreground">
       {exp.description.map((line, i) => (
         <li key={i} className="leading-relaxed flex items-start">
-          <span className="text-primary mr-3 mt-2 text-sm">▶</span>
+          {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
           {line}
         </li>
       ))}
@@ -159,7 +162,7 @@ const DesktopCard = ({ exp, align }) => (
     <ul className={`space-y-4 text-base text-muted-foreground text-${align}`}>
       {exp.description.map((line, i) => (
         <li key={i} className="leading-relaxed flex items-start">
-          <span className="text-primary mr-3 mt-2 text-sm">▶</span>
+          {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
           {line}
         </li>
       ))}
