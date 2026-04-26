@@ -146,7 +146,7 @@ const MobileCard = ({ exp }) => (
     <p className="text-muted-foreground font-medium mb-6 text-base">{exp.company}</p>
     <ul className="space-y-3 text-base text-muted-foreground">
       {exp.description.map((line, i) => (
-        <li key={i} className="leading-relaxed flex items-start">
+        <li key={i} className={`leading-relaxed ${exp.noBullet ? '' : 'flex items-start'}`}>
           {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
           {line}
         </li>
@@ -161,7 +161,7 @@ const DesktopCard = ({ exp, align }) => (
     <p className="text-muted-foreground font-medium mb-6 text-base">{exp.company}</p>
     <ul className={`space-y-4 text-base text-muted-foreground text-${align}`}>
       {exp.description.map((line, i) => (
-        <li key={i} className="leading-relaxed flex items-start">
+        <li key={i} className={`leading-relaxed ${exp.noBullet ? '' : 'flex items-start'}`}>
           {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
           {line}
         </li>
