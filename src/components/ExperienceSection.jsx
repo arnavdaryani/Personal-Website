@@ -1,3 +1,5 @@
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
 const experiences = [
   {
     id: 1,
@@ -7,9 +9,9 @@ const experiences = [
     description: [
       "Developed a .NET Core tool integrating REST APIs to automate STEP matching, reducing manual work by 40%.",
       "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
-      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets."
+      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets.",
     ],
-    image: "experience/ey.png"
+    image: "experience/ey.png",
   },
   {
     id: 2,
@@ -17,12 +19,12 @@ const experiences = [
     company: "Purdue University | West Lafayette, IN",
     period: "August 2024 - December 2024",
     description: [
-        "Developed an Android application to capture chessboard images, detect piece positions, and identify piece types.",
-        "Applied Canny Edge Detection and Otsu's Thresholding to map chess pieces, refining processing accuracy.",
-        "Engineered a Contour Edge Detection algorithm with 95% accuracy on 200+ images for empty-square detection.",
-        "Trained and optimized a CNN with TensorFlow, reducing classification errors through confusion matrix analysis."
+      "Developed an Android application to capture chessboard images, detect piece positions, and identify piece types.",
+      "Applied Canny Edge Detection and Otsu's Thresholding to map chess pieces, refining processing accuracy.",
+      "Engineered a Contour Edge Detection algorithm with 95% accuracy on 200+ images for empty-square detection.",
+      "Trained and optimized a CNN with TensorFlow, reducing classification errors through confusion matrix analysis.",
     ],
-    image: "experience/purdue.png"
+    image: "experience/purdue.png",
   },
   {
     id: 3,
@@ -33,10 +35,10 @@ const experiences = [
       "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
       "CS 250: Computer Architecture (Spring '25, Fall '25)",
       "CS 182: Foundations of Computer Science (Spring '26)",
-      "CS 193: Tools (Fall '24)"
+      "CS 193: Tools (Fall '24)",
     ],
     noBullet: true,
-    image: "experience/purdue.png"
+    image: "experience/purdue.png",
   },
   {
     id: 4,
@@ -44,11 +46,11 @@ const experiences = [
     company: "Ciena | Remote",
     period: "June 2024 - August 2024",
     description: [
-        "Reduced manual testing effort by 30% and improved accuracy by automating IS-IS protocol tests with Python.",
-        "Configured and optimized IS-IS for IPv6, enabling dual-stack integration and boosting routing efficiency.",
-        "Developed comprehensive IPv6 test cases that doubled test coverage and enhanced system reliability."
+      "Reduced manual testing effort by 30% and improved accuracy by automating IS-IS protocol tests with Python.",
+      "Configured and optimized IS-IS for IPv6, enabling dual-stack integration and boosting routing efficiency.",
+      "Developed comprehensive IPv6 test cases that doubled test coverage and enhanced system reliability.",
     ],
-    image: "experience/ciena.png"
+    image: "experience/ciena.png",
   },
   {
     id: 5,
@@ -56,140 +58,97 @@ const experiences = [
     company: "Caterpillar | West Lafayette, IN",
     period: "August 2023 - May 2024",
     description: [
-        "Built a data pipeline with R and Pandas to analyze 7 key indicators impacting supply chain efficiency.",
-        "Imputed missing data using PyCaret, improving data completeness by 25% and enhancing risk model accuracy.",
-        "Created a PowerBI dashboard delivering live risk forecasts, enabling proactive supply chain issue management."
+      "Built a data pipeline with R and Pandas to analyze 7 key indicators impacting supply chain efficiency.",
+      "Imputed missing data using PyCaret, improving data completeness by 25% and enhancing risk model accuracy.",
+      "Created a PowerBI dashboard delivering live risk forecasts, enabling proactive supply chain issue management.",
     ],
-    image: "experience/caterpillar.png"
-  }
+    image: "experience/caterpillar.png",
+  },
 ];
 
-export const ExperienceSection = () => {
-  return (
-    <section id="experience" className="py-32 px-8 relative">
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
-          Work <span className="text-primary">Experience</span>
-        </h2>
+export const ExperienceSection = () => (
+  <section id="experience" className="py-24 px-4 sm:px-8 relative overflow-hidden">
+    {/* Subtle background glow */}
+    <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5 pointer-events-none" />
 
-        <div className="relative mt-16">
-          {/* Center vertical line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-blue-500/20 via-purple-500/40 to-pink-500/20 w-1 h-full" />
+    <div className="max-w-3xl mx-auto relative z-10">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
+        Work <span className="text-primary">Experience</span>
+      </h2>
 
-          {experiences.map((exp, idx) => {
-            const isLeft = idx % 2 === 0;
+      <div className="relative">
+        {/* Vertical timeline line */}
+        <div className="absolute left-6 top-3 bottom-3 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
 
-            return (
-              <div key={exp.id} className="mb-16 w-full">
-                {/* Mobile layout */}
-                <div className="md:hidden w-full mb-8">
-                  <MobileCard exp={exp} />
-                </div>
-
-                {/* Desktop layout */}
-                <div className="hidden md:grid grid-cols-12 items-center">
-                  {isLeft ? (
-                    <>
-                      {/* Left content */}
-                      <div className="col-span-5 pr-12 text-center">
-                        <DesktopCard exp={exp} align="left" />
-                      </div>
-                      {/* Timeline */}
-                      <TimelineIcon exp={exp} />
-                      {/* Empty placeholder */}
-                      <div className="col-span-5" />
-                    </>
-                  ) : (
-                    <>
-                      {/* Empty placeholder */}
-                      <div className="col-span-5" />
-                      {/* Timeline */}
-                      <TimelineIcon exp={exp} />
-                      {/* Right content */}
-                      <div className="col-span-5 pl-12">
-                        <DesktopCard exp={exp} align="left" />
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        <div className="space-y-6">
+          {experiences.map((exp, idx) => (
+            <ExperienceCard key={exp.id} exp={exp} index={idx} />
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
-const MobileCard = ({ exp }) => (
-  <div className="bg-card rounded-3xl p-8 shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300">
-    <div className="flex items-center mb-6">
-      <div className="bg-background rounded-full p-6 mr-6 shadow-lg border-2 border-primary/20 w-28 h-28 flex items-center justify-center">
-        <img 
-          src={exp.image} 
-          alt={`${exp.company} logo`}
-          className="w-16 h-16 object-contain"
+const ExperienceCard = ({ exp, index }) => {
+  const [ref, isVisible] = useScrollReveal();
+
+  return (
+    <div
+      ref={ref}
+      className="relative pl-20 transition-all duration-700"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(24px)",
+        transitionDelay: `${index * 80}ms`,
+      }}
+    >
+      {/* Company logo node — centered on the timeline line (line is at left-6=24px, icon is w-12=48px at left-0, center=24px) */}
+      <div className="absolute left-0 top-5 w-12 h-12 rounded-full bg-card border-2 border-primary/30 flex items-center justify-center z-10 shadow-lg shadow-primary/10">
+        <img
+          src={exp.image}
+          alt=""
+          className="w-7 h-7 object-contain"
           onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextSibling.style.display = 'block';
+            e.target.style.display = "none";
+            e.target.nextSibling.style.display = "flex";
           }}
         />
-        <div className="w-16 h-16 bg-primary/20 rounded flex items-center justify-center text-primary font-bold text-2xl hidden">
+        <div className="w-full h-full rounded-full bg-primary/20 hidden items-center justify-center text-primary font-bold text-sm">
           {exp.company.charAt(0)}
         </div>
       </div>
-      <div>
-        <h3 className="text-2xl font-semibold text-foreground mb-2">{exp.title}</h3>
-        <p className="text-muted-foreground text-base">{exp.period}</p>
+
+      {/* Card */}
+      <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+        <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
+          <div>
+            <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
+              {exp.title}
+            </h3>
+            <p className="text-primary text-sm font-medium mt-0.5">{exp.company}</p>
+          </div>
+          <span className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
+            {exp.period}
+          </span>
+        </div>
+
+        <ul className="space-y-2">
+          {exp.description.map((line, i) => (
+            <li
+              key={i}
+              className={`text-sm sm:text-[0.9rem] text-muted-foreground leading-relaxed ${
+                exp.noBullet ? "" : "flex items-start gap-2"
+              }`}
+            >
+              {!exp.noBullet && (
+                <span className="text-primary mt-[6px] shrink-0 text-[9px]">▶</span>
+              )}
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-    <p className="text-muted-foreground font-medium mb-6 text-base">{exp.company}</p>
-    <ul className="space-y-3 text-base text-muted-foreground">
-      {exp.description.map((line, i) => (
-        <li key={i} className={`leading-relaxed ${exp.noBullet ? '' : 'flex items-start'}`}>
-          {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
-          {line}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const DesktopCard = ({ exp, align }) => (
-  <div className="bg-card rounded-3xl p-10 shadow-lg border border-border/50 hover:shadow-2xl transition-all duration-300 hover:scale-105 min-h-[300px]">
-    <h3 className="text-2xl font-semibold mb-4 text-foreground">{exp.title}</h3>
-    <p className="text-muted-foreground font-medium mb-6 text-base">{exp.company}</p>
-    <ul className={`space-y-4 text-base text-muted-foreground text-${align}`}>
-      {exp.description.map((line, i) => (
-        <li key={i} className={`leading-relaxed ${exp.noBullet ? '' : 'flex items-start'}`}>
-          {!exp.noBullet && <span className="text-primary mr-3 mt-2 text-sm">▶</span>}
-          {line}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const TimelineIcon = ({ exp }) => (
-  <div className="col-span-2 flex flex-col items-center z-10">
-    <div className="bg-background rounded-full p-6 shadow-lg border-2 border-primary/20 hover:border-primary/50 transition-colors duration-300 w-28 h-28 flex items-center justify-center">
-      <img 
-        src={exp.image} 
-        alt={`${exp.company} logo`}
-        className="w-16 h-16 object-contain"
-        onError={(e) => {
-          e.target.style.display = 'none';
-          e.target.nextSibling.style.display = 'block';
-        }}
-      />
-      <div className="w-16 h-16 bg-primary/20 rounded flex items-center justify-center text-primary font-bold text-2xl hidden">
-        {exp.company.charAt(0)}
-      </div>
-    </div>
-    <div className="mt-4 px-4 py-2 bg-secondary rounded-full">
-      <p className="text-sm font-medium text-secondary-foreground text-center whitespace-nowrap">
-        {exp.period}
-      </p>
-    </div>
-  </div>
-);
+  );
+};

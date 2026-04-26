@@ -10,6 +10,12 @@
 
   --color-card: hsl(var(--card));
 
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
@@ -60,6 +66,11 @@
       opacity: 0;
     }
   }
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
 }
 
 @layer base {
@@ -73,6 +84,12 @@
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
+
+    --muted: 210 40% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    --secondary: 210 40% 93%;
+    --secondary-foreground: 222 47% 11%;
   }
 
   .dark {
@@ -85,6 +102,12 @@
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 62%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 213 31% 91%;
   }
 
   * {
@@ -139,7 +162,7 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
 }
@@ -152,6 +175,11 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+@utility blinking-cursor {
+  display: inline-block;
+  animation: blink 1s steps(2, start) infinite;
 }
 
 #root {
