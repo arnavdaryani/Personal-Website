@@ -3,18 +3,6 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 const experiences = [
   {
     id: 1,
-    title: "Software Engineer Intern",
-    company: "Ernst & Young LLP | Chicago, IL",
-    period: "June 2025 - Present",
-    description: [
-      "Developed a .NET Core tool integrating REST APIs to automate STEP matching, reducing manual work by 40%.",
-      "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
-      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets.",
-    ],
-    image: "experience/ey.png",
-  },
-  {
-    id: 2,
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Andres Bejarano",
     company: "Purdue University | West Lafayette, IN",
@@ -25,7 +13,7 @@ const experiences = [
     image: "experience/purdue-cs.jpeg",
   },
   {
-    id: 3,
+    id: 2,
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Dan Goldwasser",
     company: "Purdue University | West Lafayette, IN",
@@ -35,6 +23,18 @@ const experiences = [
       "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
     ],
     image: "experience/purdue-cs.jpeg",
+  },
+  {
+    id: 3,
+    title: "Software Engineer Intern",
+    company: "Ernst & Young LLP | Chicago, IL",
+    period: "June 2025 - August 2025",
+    description: [
+      "Developed a .NET Core tool integrating REST APIs to automate STEP matching, reducing manual work by 40%.",
+      "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
+      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets.",
+    ],
+    image: "experience/ey.png",
   },
   {
     id: 4,
