@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  base: "/Personal-Website/",
+  base: "/",
   plugins: [
     react(),
     tailwindcss()

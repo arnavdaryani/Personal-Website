@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Toaster />
-      <BrowserRouter basename="/Personal-Website">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
