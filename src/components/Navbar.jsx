@@ -48,7 +48,7 @@ export const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a
-          className="text-4xl font-bold text-primary flex items-center"
+          className="text-3xl sm:text-4xl font-bold text-primary flex items-center"
           href="#hero"
         >
           <span className="relative z-10">
@@ -70,13 +70,13 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* mobile hamburger */}
+        {/* mobile hamburger — sits above the overlay */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-4 text-foreground z-50"
+          className="md:hidden p-2 text-foreground z-50"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={36} /> : <Menu size={36} />}
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
         {/* mobile menu overlay */}
@@ -89,12 +89,12 @@ export const Navbar = () => {
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-12 text-3xl">
+          <div className="flex flex-col items-center space-y-10">
             {navItems.map((item, key) => (
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-2xl font-medium text-foreground/80 hover:text-primary transition-colors duration-300 text-center"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
