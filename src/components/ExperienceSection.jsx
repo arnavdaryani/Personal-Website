@@ -47,7 +47,6 @@ const experiences = [
       "CS 182: Foundations of Computer Science (Spring '26)",
       "CS 193: Tools (Fall '24)",
     ],
-    noBullet: true,
     image: "experience/purdue-cs.jpeg",
   },
   {
