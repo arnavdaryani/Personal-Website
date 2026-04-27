@@ -22,7 +22,7 @@ const experiences = [
     description: [
       "Analyzing AI usage patterns among students to understand adoption behaviors and educational outcomes.",
     ],
-    image: "experience/purdue-cs.png",
+    image: "experience/purdue-cs.jpeg",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const experiences = [
       "Built benchmarking pipelines for graph-conditioned LLMs, enabling systematic evaluation of graph-based context against text-only and context-enriched baselines on socially grounded sentiment analysis tasks.",
       "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
     ],
-    image: "experience/purdue-cs.png",
+    image: "experience/purdue-cs.jpeg",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const experiences = [
       "CS 193: Tools (Fall '24)",
     ],
     noBullet: true,
-    image: "experience/purdue-cs.png",
+    image: "experience/purdue-cs.jpeg",
   },
   {
     id: 5,
