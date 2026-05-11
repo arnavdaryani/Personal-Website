@@ -138,7 +138,7 @@ const ExperienceCard = ({ exp, index }) => {
         <img
           src={exp.image}
           alt=""
-          className="w-7 h-7 object-contain"
+          className="w-full h-full object-cover rounded-full"
           onError={(e) => {
             e.target.style.display = "none";
             e.target.nextSibling.style.display = "flex";
