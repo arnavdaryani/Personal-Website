@@ -2,6 +2,16 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const experiences = [
   {
+    id: 0,
+    title: "Software Development Engineer Intern",
+    company: "Amazon Web Services | Seattle, WA",
+    period: "May 2026 - Present",
+    description: [
+      "AWS Invoicing",
+    ],
+    image: "experience/aws.png",
+  },
+  {
     id: 1,
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Andres Bejarano",
