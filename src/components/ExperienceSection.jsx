@@ -4,12 +4,12 @@ const experiences = [
   {
     id: 0,
     title: "Software Development Engineer Intern",
-    company: "Amazon Web Services | Seattle, WA",
+    company: "Amazon Web Services | Arlington, VA",
     period: "May 2026 - Present",
     description: [
       "AWS Invoicing",
     ],
-    image: "experience/aws.png",
+    image: "experience/aws.jpeg",
   },
   {
     id: 1,
