@@ -23,7 +23,6 @@ export const Home = () => {
         <ProjectsSection />
         <ContactPage />
       </main>
-      <footer className="site-footer"><a href="#about">Arnav Daryani.</a><span>Built with curiosity. © {new Date().getFullYear()}</span><a href="mailto:arnavdaryani@gmail.com">Say hello ↗</a></footer>
     </div>
   );
 };
