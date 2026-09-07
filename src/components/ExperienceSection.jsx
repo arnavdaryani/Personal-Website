@@ -14,7 +14,7 @@ const experiences = [
     id: 0,
     title: "Software Development Engineer Intern",
     company: "Amazon Web Services | Arlington, VA",
-    period: "May 2026 - Present",
+    period: "May 2026 - August 2026",
     description: [
       "AWS Invoicing",
     ],
@@ -25,7 +25,7 @@ const experiences = [
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Andres Bejarano",
     company: "Purdue University | West Lafayette, IN",
-    period: "January 2026 - Present",
+    period: "January 2026 - August 2026",
     description: [
       "Analyzing AI usage patterns among students to understand adoption behaviors and educational outcomes.",
     ],
@@ -36,7 +36,7 @@ const experiences = [
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Dan Goldwasser",
     company: "Purdue University | West Lafayette, IN",
-    period: "January 2026 - Present",
+    period: "January 2026 - August 2026",
     description: [
       "Built benchmarking pipelines for graph-conditioned LLMs, enabling systematic evaluation of graph-based context against text-only and context-enriched baselines on socially grounded sentiment analysis tasks.",
       "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
@@ -59,7 +59,7 @@ const experiences = [
     id: 4,
     title: "Undergraduate Teaching Assistant",
     company: "Purdue University | West Lafayette, IN",
-    period: "August 2024 - Present",
+    period: "August 2024 - August 2026",
     description: [
       "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
       "CS 250: Computer Architecture (Spring '25, Fall '25)",
