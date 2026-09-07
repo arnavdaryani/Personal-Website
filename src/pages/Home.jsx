@@ -1,6 +1,5 @@
 import { Navbar } from "../components/Navbar";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { StarBackground } from "@/components/StarBackground";
 import { AboutSection } from "../components/AboutSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactPage } from "../components/ContactSection";
@@ -12,17 +11,19 @@ export const Home = () => {
       {/* Theme Toggle */}
       <ThemeToggle />
       {/* Background Effects */}
-      <StarBackground />
+
 
       {/* Navbar */}
       <Navbar />
       {/* Main Content */}
+      <a href="#about" className="skip-link">Skip to content</a>
       <main>
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
         <ContactPage />
       </main>
+      <footer className="site-footer"><a href="#about">Arnav Daryani.</a><span>Built with curiosity. © {new Date().getFullYear()}</span><a href="mailto:arnavdaryani@gmail.com">Say hello ↗</a></footer>
     </div>
   );
 };

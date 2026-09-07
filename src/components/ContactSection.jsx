@@ -88,9 +88,9 @@ export const ContactPage = () => {
       <div className="w-full max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-4">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-4">
             Contact <span className="text-primary">Me</span>
-          </h1>
+          </h2>
           <p className="text-xl text-muted-foreground">
             
           </p>
@@ -112,6 +112,8 @@ export const ContactPage = () => {
               name="first"
               value={formData.first}
               onChange={handleInputChange}
+              aria-label="Full name"
+              autoComplete="name"
               placeholder="Full Name"
               required
               disabled={isSubmitting}
@@ -122,6 +124,8 @@ export const ContactPage = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              aria-label="Email address"
+              autoComplete="email"
               placeholder="Email Address"
               required
               disabled={isSubmitting}
@@ -134,9 +138,10 @@ export const ContactPage = () => {
             name="message"
             value={formData.message}
             onChange={handleInputChange}
+            aria-label="Your message"
             placeholder="Your Message"
             required
-            rows={12}
+            rows={6}
             disabled={isSubmitting}
             className="w-full px-8 py-6 bg-card border border-border rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-4 focus:ring-primary transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
           />

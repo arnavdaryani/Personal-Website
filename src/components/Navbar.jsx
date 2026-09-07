@@ -41,15 +41,15 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-6 bg-background/90 backdrop-blur-md shadow-xs" : "py-12",
+        isScrolled ? "py-6 bg-background/90 backdrop-blur-md shadow-xs" : "py-7",
         // Hide on mobile when scrolling down; always visible on sm+ (desktop)
         isHidden ? "-translate-y-full sm:translate-y-0" : "translate-y-0"
       )}
     >
       <div className="container flex items-center justify-between">
         <a
-          className="text-3xl sm:text-4xl font-bold text-primary flex items-center"
-          href="#hero"
+          className="text-xl sm:text-2xl font-bold text-primary flex items-center"
+          href="#about"
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground"> Arnav </span>{" "}
@@ -58,12 +58,12 @@ export const Navbar = () => {
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-16">
+        <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-xl text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="text-sm text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
             </a>
@@ -74,6 +74,8 @@ export const Navbar = () => {
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -81,12 +83,14 @@ export const Navbar = () => {
 
         {/* mobile menu overlay */}
         <div
+          id="mobile-navigation"
+          inert={isMenuOpen ? undefined : ""}
           className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-x-0 top-0 h-dvh bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              : "invisible opacity-0 pointer-events-none"
           )}
         >
           <div className="flex flex-col items-center space-y-10">

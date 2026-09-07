@@ -2,6 +2,15 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const experiences = [
   {
+    id: "tesla",
+    title: "Incoming Software Engineer Intern",
+    company: "Tesla",
+    period: "Fall 2026",
+    description: ["Joining Tesla as a Software Engineer Intern in Fall 2026."],
+    image: "/experience/tesla.svg",
+    noBullet: true,
+  },
+  {
     id: 0,
     title: "Software Development Engineer Intern",
     company: "Amazon Web Services | Arlington, VA",
@@ -150,7 +159,7 @@ const ExperienceCard = ({ exp, index }) => {
       </div>
 
       {/* Card */}
-      <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+      <div className={`${exp.id === "tesla" ? "tesla-card " : ""}bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300`}>
         <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
           <div>
             <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
