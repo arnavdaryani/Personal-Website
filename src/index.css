@@ -250,3 +250,20 @@ a:focus-visible, button:focus-visible { outline: 2px solid #86baff; outline-offs
   .project-card[data-pointer-active="true"] { transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-2px); }
 }
 @media (prefers-reduced-motion: reduce) { .hero-section::after, .project-card::after { display: none; } }
+
+/* Quiet feedback for navigation, social links, and the experience timeline. */
+.nav-link { position: relative; }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
+.nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+.social-row a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: transform .2s ease, background .2s ease, color .2s ease; }
+.social-row a:hover, .social-row a:focus-visible { background: #89baff12; color: #a9ccff; transform: translateY(-3px); }
+.social-row a:active { transform: scale(.96); }
+.experience-card { position: relative; overflow: hidden; }
+.experience-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(280px circle at var(--glow-x, 50%) var(--glow-y, 50%), #89baff0d, transparent 80%); transition: opacity .25s ease; }
+.experience-card[data-pointer-active="true"]::after { opacity: 1; }
+.experience-logo { transition: transform .25s ease, box-shadow .25s ease; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .experience-entry:hover .experience-logo { transform: scale(1.06); box-shadow: 0 0 18px #89baff25; }
+  .experience-card[data-pointer-active="true"] { transform: translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) { .social-row a:hover, .social-row a:focus-visible, .social-row a:active { transform: none; } .experience-card::after { display: none; } }

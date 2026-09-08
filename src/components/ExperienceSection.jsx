@@ -1,14 +1,14 @@
+import { pointerMotion } from "../lib/pointerMotion";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const experiences = [
   {
     id: "tesla",
     title: "Software Engineer Intern",
-    company: "Tesla",
+    company: "Tesla | Fremont, CA",
     period: "September 2026 - Present",
     description: ["Fall 2026"],
     image: "/experience/tesla.png",
-    noBullet: true,
   },
   {
     id: 0,
@@ -122,7 +122,7 @@ const ExperienceCard = ({ exp, index }) => {
   return (
     <div
       ref={ref}
-      className="relative pl-20 transition-all duration-700"
+      className="experience-entry relative pl-20 transition-all duration-700"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -130,7 +130,7 @@ const ExperienceCard = ({ exp, index }) => {
       }}
     >
       {/* Company logo node — w-12=48px at left-0, center at 24px; line is at left-6=24px */}
-      <div className="absolute left-0 top-5 w-12 h-12 rounded-full bg-card border-2 border-primary/30 flex items-center justify-center z-10 shadow-lg shadow-primary/10">
+      <div className="experience-logo absolute left-0 top-5 w-12 h-12 rounded-full bg-card border-2 border-primary/30 flex items-center justify-center z-10 shadow-lg shadow-primary/10">
         <img
           src={exp.image}
           alt=""
@@ -146,7 +146,7 @@ const ExperienceCard = ({ exp, index }) => {
       </div>
 
       {/* Card */}
-      <div className="bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+      <div {...pointerMotion} className="experience-card bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
         <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
           <div>
             <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
