@@ -195,9 +195,8 @@ body { font-family: Inter, "Helvetica Neue", Arial, sans-serif; }
 ::selection { background: #3677c8; color: white; }
 section { scroll-margin-top: 95px; }
 a:focus-visible, button:focus-visible { outline: 2px solid #86baff; outline-offset: 6px; }
-.hero-section { --pointer-x: 50%; --pointer-y: 45%; position: relative; isolation: isolate; width: 100%; margin: 0; min-height: 100svh; padding: 140px 48px 90px; display: flex; flex-direction: column; justify-content: center; text-align: center; }
-.hero-section::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at var(--pointer-x) var(--pointer-y), #367de91a, transparent 60%); }
-.hero-section::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(#87b9ff08 1px, transparent 1px), linear-gradient(90deg, #87b9ff08 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse, black, transparent 70%); }
+.hero-section { position: relative; isolation: isolate; width: 100%; margin: 0; min-height: 100svh; padding: 140px 48px 90px; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+.hero-section::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, #367de90d, transparent 60%); }
 .hero-copy { max-width: 900px; margin: auto; }
 .hero-copy h1 { font-size: clamp(3.5rem, 8vw, 6.8rem); line-height: 1.08; letter-spacing: -.065em; font-weight: 650; }
 .hero-copy h1 .name-last { color: #89baff; }
@@ -206,7 +205,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #86baff; outline-offs
 .hero-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 26px; margin-top: 32px; font-size: 14px; }
 .primary-action { display: inline-flex; align-items: center; gap: 12px; }
 .primary-action { padding: 14px 20px; background: #89baff; color: #081426; border-radius: 7px; font-weight: 600; transition: background .2s, transform .2s; }
-.primary-action:hover { background: #b2d2ff; transform: translateY(-3px); }
+.primary-action:hover { background: #b2d2ff; transform: translateY(-1px); }
 .social-row { display: flex; justify-content: center; gap: 24px; align-items: center; margin-top: 30px; color: #a1a8b8; }
 .social-row a:hover { color: #89baff; }
 #experience, #projects { border-top: 1px solid #ffffff08; }
@@ -214,33 +213,29 @@ a:focus-visible, button:focus-visible { outline: 2px solid #86baff; outline-offs
 #experience h2, #projects h2 { text-align: left; font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -.045em; }
 #projects h2 + p { text-align: left; margin-left: 0; }
 .project-card { text-align: left; }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) { .project-card:hover { transform: translateY(-4px); } }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .project-card:hover { transform: translateY(-2px); } }
 #contact { min-height: auto; border-top: 1px solid #252d3c; }
 #contact h2 { font-size: clamp(2.8rem, 6vw, 4.5rem); letter-spacing: -.05em; }
 .skip-link { position: fixed; left: 12px; top: -80px; z-index: 100; background: #89baff; color: #081426; padding: 12px; }
 .skip-link:focus { top: 12px; }
-@keyframes intro-enter { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes intro-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 640px) { .hero-section { padding: 120px 24px 80px; min-height: 100svh; } .hero-copy h1 .name-last { display: block; } .hero-bio { font-size: 16px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 
 .hero-section { overflow: hidden; }
-.interactive-field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; mask-image: linear-gradient(black 75%, transparent 100%); }
 .hero-copy { position: relative; z-index: 1; }
-.hero-copy::before { content: ""; position: absolute; inset: -30px -40px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse, hsl(var(--background) / .88) 15%, hsl(var(--background) / .5) 48%, transparent 70%); }
-.hero-copy h1 span { display: inline-block; animation: name-reveal 1.1s cubic-bezier(.16,1,.3,1) both; }
+.hero-copy h1 span { display: inline-block; animation: intro-enter .6s ease-out both; }
 .hero-copy h1 .name-last { animation-delay: .12s; }
-.hero-bio, .hero-actions, .social-row { animation: intro-enter .9s ease-out both; }
+.hero-bio, .hero-actions, .social-row { animation: intro-enter .6s ease-out both; }
 .hero-bio { animation-delay: .2s; }
 .hero-passion { animation-delay: .3s; }
 .hero-actions { animation-delay: .4s; }
 .social-row { animation-delay: .5s; }
 .primary-action svg { transition: transform .25s ease; }
 .primary-action:hover svg { transform: translate(2px, -2px); }
-@keyframes name-reveal { from { opacity: 0; filter: blur(8px); transform: translateY(30px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     #experience h2, #projects h2, #contact h2 { animation: section-enter linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; }
   }
 }
 @keyframes section-enter { from { opacity: .25; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 640px) { .hero-copy::before { inset: -25px -20px; } }
