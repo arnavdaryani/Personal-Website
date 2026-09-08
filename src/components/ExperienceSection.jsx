@@ -3,10 +3,10 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 const experiences = [
   {
     id: "tesla",
-    title: "Incoming Software Engineer Intern",
+    title: "Software Engineer Intern",
     company: "Tesla",
-    period: "Fall 2026",
-    description: ["Joining Tesla as a Software Engineer Intern in Fall 2026."],
+    period: "September 2026 - Present",
+    description: ["Fall 2026"],
     image: "/experience/tesla.png",
     noBullet: true,
   },
@@ -16,7 +16,7 @@ const experiences = [
     company: "Amazon Web Services | Arlington, VA",
     period: "May 2026 - August 2026",
     description: [
-      "AWS Invoicing",
+      "Agentic Invoice Systems",
     ],
     image: "experience/aws.jpeg",
   },
@@ -61,30 +61,17 @@ const experiences = [
     company: "Purdue University | West Lafayette, IN",
     period: "August 2024 - August 2026",
     description: [
-      "CS 251: Data Structures & Algorithms (Fall '25, Spring '26)",
-      "CS 250: Computer Architecture (Spring '25, Fall '25)",
-      "CS 182: Foundations of Computer Science (Spring '26)",
-      "CS 193: Tools (Fall '24)",
+      "CS 251: Data Structures & Algorithms",
+      "CS 250: Computer Architecture",
+      "CS 182: Foundations of Computer Science",
+      "CS 193: Tools",
     ],
     image: "experience/purdue-cs.jpeg",
   },
   {
-    id: 5,
-    title: "Undergraduate Research Assistant - VIPER Lab",
-    company: "Purdue University | West Lafayette, IN",
-    period: "August 2024 - December 2024",
-    description: [
-      "Developed an Android application to capture chessboard images, detect piece positions, and identify piece types.",
-      "Applied Canny Edge Detection and Otsu's Thresholding to map chess pieces, refining processing accuracy.",
-      "Engineered a Contour Edge Detection algorithm with 95% accuracy on 200+ images for empty-square detection.",
-      "Trained and optimized a CNN with TensorFlow, reducing classification errors through confusion matrix analysis.",
-    ],
-    image: "experience/purdue.png",
-  },
-  {
     id: 6,
     title: "Software Engineer Intern",
-    company: "Ciena | Remote",
+    company: "Ciena | Gurgaon, Haryana",
     period: "June 2024 - August 2024",
     description: [
       "Reduced manual testing effort by 30% and improved accuracy by automating IS-IS protocol tests with Python.",
