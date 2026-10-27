@@ -12,7 +12,7 @@ export const AboutSection = () => (
     </div>
     <div className="intro-links">
       <a href="https://github.com/arnavdaryani" target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={15} /></a>
-      <a href="https://www.linkedin.com/in/arnav-daryani/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={15} /></a>
+      <a href="https://www.linkedin.com/in/arnavdaryani/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={15} /></a>
       <a href="mailto:arnavdaryani@gmail.com">Email <ArrowUpRight size={15} /></a>
     </div>
   </section>

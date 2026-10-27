@@ -35,7 +35,7 @@ button:disabled { opacity: .5; cursor: wait; }
 .nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
 .menu-toggle { display: none; background: none; border: 0; color: inherit; padding: 8px; }
 .mobile-links { position: absolute; inset: 86px 0 auto; padding: 24px; background: #171819; display: grid; gap: 20px; border-bottom: 1px solid #303234; }
-.intro { padding-top: 58px; padding-bottom: 46px; }
+.intro { padding-top: 100px; padding-bottom: 72px; }
 .intro-top { display: flex; justify-content: space-between; gap: 24px; }
 .small-label, .section-index, .project-meta, .project-tags, .experience-date { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .small-label { color: #858990; font-size: 11px; letter-spacing: .12em; }
@@ -51,7 +51,7 @@ h1 > span { color: #a0a4aa; }
 .text-link svg { transition: transform .2s; }
 .text-link:hover svg { transform: translate(3px, 3px); }
 .intro-cta { margin-top: 30px; }
-.intro-links { display: flex; gap: 28px; margin-top: 54px; padding-top: 25px; border-top: 1px solid #303234; }
+.intro-links { display: flex; gap: 28px; margin-top: 78px; padding-top: 25px; border-top: 1px solid #303234; }
 .intro-links a { display: inline-flex; gap: 10px; align-items: center; font-size: 13px; color: #aeb0b4; transition: color .2s; }
 .intro-links a:hover { color: #fff; }
 .intro-links svg { transition: transform .2s; }
@@ -70,9 +70,7 @@ h2 { font-size: clamp(28px, 3.2vw, 40px); font-weight: 500; letter-spacing: -.05
 .role-heading h4 { font-size: 16px; font-weight: 500; margin: 4px 0 8px; letter-spacing: -.02em; }
 .experience-date { font-size: 11px; color: #9298a1; white-space: nowrap; }
 .advisor { margin: 0 0 12px; font-size: 13px; color: #9298a1; }
-.experience-body ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 9px; }
-.experience-body li { display: flex; align-items: baseline; gap: 12px; color: #a5aab2; font-size: 14px; line-height: 1.75; }
-.bullet { font-size: 7px; color: #7b8592; flex-shrink: 0; }
+.role-overview { margin: 10px 0 0; color: #a5aab2; font-size: 15px; line-height: 1.8; max-width: 680px; }
 .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #303234; }
 .project-entry { display: flex; flex-direction: column; padding: 32px 32px 30px 0; border-bottom: 1px solid #303234; position: relative; transition: background .25s; }
 .project-entry:nth-child(even) { padding-left: 32px; padding-right: 0; border-left: 1px solid #303234; }
@@ -121,7 +119,7 @@ textarea { resize: vertical; min-height: 100px; }
   .desktop-links { display: none; }
   .menu-toggle { display: block; }
   .mobile-links { top: 72px; }
-  .intro { padding-top: 32px; padding-bottom: 24px; }
+  .intro { padding-top: 48px; padding-bottom: 40px; }
   .intro-top .small-label:last-child { display: none; }
   .intro-layout { grid-template-columns: 1fr; gap: 30px; margin-top: 34px; }
   h1 { font-size: clamp(76px, 19vw, 118px); }
@@ -134,7 +132,7 @@ textarea { resize: vertical; min-height: 100px; }
   .experience-company { flex-direction: row; gap: 16px; }
   .brand-box { width: 54px; height: 54px; padding: 10px; }
   .role-heading h4 { font-size: 17px; }
-  .experience-body li { font-size: 15px; }
+  .role-overview { font-size: 15px; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-entry, .project-entry:nth-child(even) { padding: 26px 0; border-left: 0; }
   .project-meta { margin-bottom: 20px; }
@@ -149,16 +147,6 @@ textarea { resize: vertical; min-height: 100px; }
   .reveal { opacity: 1; transform: none; }
 }
 
-.brand-ey { background: #202224; }
-
-.brand-ey, .brand-ciena { padding: 0; overflow: hidden; }
-.brand-ey img, .brand-ciena img { object-fit: cover; }
-.brand-ciena { background: #e00000; }
-
-.brand-tesla { background: #e82127; }
-.brand-aws { background: #18202f; padding: 9px; }
-.brand-purdue { background: #191a1b; padding: 7px; }
-.brand-ey { background: #171819; }
-.brand-ciena { background: #e00000; }
-.brand-caterpillar { background: #ffcd11; padding: 7px; }
+.brand-box { padding: 0; overflow: hidden; }
+.brand-box img { object-fit: cover; }
 .intro-layout { margin-top: 20px; }

@@ -6,20 +6,16 @@ const experiences = [
     title: "Software Engineer Intern",
     company: "Tesla | Fremont, CA",
     period: "September 2026 - Present",
-    description: ["Applied AI | Financial Systems"],
-    image: "/experience/brands/tesla.svg",
+    description: "Applied AI | Financial Systems",
+    image: "/experience/brands/tesla-linkedin.jpg",
   },
   {
     id: 0,
     title: "Software Development Engineer Intern",
     company: "Amazon Web Services | Arlington, VA",
     period: "May 2026 - August 2026",
-    description: [
-      "Built a production AI ops agent with Lambda, Bedrock, and Python, cutting billing triage from 30 to ∼2 minutes.",
-      "Automated root-cause analysis across Step Functions, SWF workflows, and DynamoDB for distributed failures.",
-      "Engineered cross-account orchestration to correlate multi-system failure signals and surface actionable diagnostics.",
-    ],
-    image: "/experience/brands/aws.svg",
+    description: "Worked on an AI operations agent for billing systems using Lambda, Bedrock, and Python. Focused on diagnosing distributed failures and connecting signals across accounts and workflows.",
+    image: "/experience/brands/aws-linkedin.jpg",
   },
   {
     id: 1,
@@ -27,61 +23,40 @@ const experiences = [
     subtitle: "Advisors: Prof. Andres Bejarano & Prof. Dan Goldwasser",
     company: "Purdue University | West Lafayette, IN",
     period: "January 2026 - August 2026",
-    description: [
-      "Analyzing AI usage patterns among students to understand adoption behaviors and educational outcomes.",
-      "Built benchmarking pipelines for graph-conditioned LLMs, enabling systematic evaluation of graph-based context against text-only and context-enriched baselines on socially grounded sentiment analysis tasks.",
-      "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
-    ],
-    image: "/experience/brands/purdue.svg",
+    description: "Explored how students use AI and how graph-based context shapes language-model predictions. The research combined studies of AI adoption with experiments in socially grounded sentiment analysis.",
+    image: "/experience/brands/purdue-linkedin.jpg",
   },
   {
     id: 3,
     title: "Software Engineer Intern",
     company: "Ernst & Young LLP | Chicago, IL",
     period: "June 2025 - August 2025",
-    description: [
-      "Developed a .NET Core tool integrating REST APIs to automate STEP matching, reducing manual work by 40%.",
-      "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
-      "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets.",
-    ],
-    image: "/experience/ey.png",
+    description: "Worked on automation and AI-assisted tooling for financial data and tax reporting. Built data workflows with Python, .NET, and Azure to bring information from multiple systems together.",
+    image: "/experience/brands/ey-linkedin.jpg",
   },
   {
     id: 4,
     title: "Undergraduate Teaching Assistant",
     company: "Purdue University | West Lafayette, IN",
     period: "August 2024 - August 2026",
-    description: [
-      "CS 251: Data Structures & Algorithms",
-      "CS 250: Computer Architecture",
-      "CS 182: Foundations of Computer Science",
-      "CS 193: Tools",
-    ],
-    image: "/experience/brands/purdue.svg",
+    description: "Supported courses in data structures and algorithms, computer architecture, foundations of computer science, and developer tools. These included CS 251, CS 250, CS 182, and CS 193.",
+    image: "/experience/brands/purdue-linkedin.jpg",
   },
   {
     id: 6,
     title: "Software Engineer Intern",
     company: "Ciena | Gurgaon, Haryana",
     period: "June 2024 - August 2024",
-    description: [
-      "Reduced manual testing effort by 30% and improved accuracy by automating IS-IS protocol tests with Python.",
-      "Configured and optimized IS-IS for IPv6, enabling dual-stack integration and boosting routing efficiency.",
-      "Developed comprehensive IPv6 test cases that doubled test coverage and enhanced system reliability.",
-    ],
-    image: "experience/ciena.png",
+    description: "Worked on network protocol testing and automation with Python. Focused on IS-IS, IPv6, and the reliability of routing workflows.",
+    image: "/experience/brands/ciena-linkedin.jpg",
   },
   {
     id: 7,
     title: "Undergraduate Research Assistant",
     company: "Caterpillar | West Lafayette, IN",
     period: "August 2023 - May 2024",
-    description: [
-      "Built a data pipeline with R and Pandas to analyze 7 key indicators impacting supply chain efficiency.",
-      "Imputed missing data using PyCaret, improving data completeness by 25% and enhancing risk model accuracy.",
-      "Created a PowerBI dashboard delivering live risk forecasts, enabling proactive supply chain issue management.",
-    ],
-    image: "/experience/brands/caterpillar.svg",
+    description: "Explored supply-chain risk through data analysis and predictive modeling. Combined data pipelines and dashboards to make risk signals easier to interpret.",
+    image: "/experience/brands/caterpillar-linkedin.jpg",
   },
 ];
 
@@ -101,7 +76,7 @@ const ExperienceRow = ({ exp }) => {
       <div className="experience-company"><div className={`brand-box brand-${brand}`}><img src={exp.image} alt="" width="56" height="56" loading="lazy" /></div><div><h3>{company}</h3><p>{location}</p></div></div>
       <div className="experience-body"><div className="role-heading"><h4>{exp.title}</h4><span className="experience-date">{exp.period}</span></div>
         {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
-        <ul>{exp.description.map(line => <li key={line}><span className="bullet" aria-hidden="true">▶</span><span>{line}</span></li>)}</ul>
+        <p className="role-overview">{exp.description}</p>
       </div>
     </article>
   );
