@@ -1,4 +1,3 @@
-import { pointerMotion } from "../lib/pointerMotion";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const experiences = [
@@ -7,8 +6,8 @@ const experiences = [
     title: "Software Engineer Intern",
     company: "Tesla | Fremont, CA",
     period: "September 2026 - Present",
-    description: ["Fall 2026"],
-    image: "/experience/tesla.png",
+    description: ["Applied AI | Financial Systems"],
+    image: "/experience/brands/tesla.svg",
   },
   {
     id: 0,
@@ -16,32 +15,24 @@ const experiences = [
     company: "Amazon Web Services | Arlington, VA",
     period: "May 2026 - August 2026",
     description: [
-      "Agentic Invoice Systems",
+      "Built a production AI ops agent with Lambda, Bedrock, and Python, cutting billing triage from 30 to ∼2 minutes.",
+      "Automated root-cause analysis across Step Functions, SWF workflows, and DynamoDB for distributed failures.",
+      "Engineered cross-account orchestration to correlate multi-system failure signals and surface actionable diagnostics.",
     ],
-    image: "experience/aws.jpeg",
+    image: "/experience/brands/aws.svg",
   },
   {
     id: 1,
     title: "Undergraduate Research Assistant",
-    subtitle: "Advisor: Prof. Andres Bejarano",
+    subtitle: "Advisors: Prof. Andres Bejarano & Prof. Dan Goldwasser",
     company: "Purdue University | West Lafayette, IN",
     period: "January 2026 - August 2026",
     description: [
       "Analyzing AI usage patterns among students to understand adoption behaviors and educational outcomes.",
-    ],
-    image: "experience/purdue-cs.jpeg",
-  },
-  {
-    id: 2,
-    title: "Undergraduate Research Assistant",
-    subtitle: "Advisor: Prof. Dan Goldwasser",
-    company: "Purdue University | West Lafayette, IN",
-    period: "January 2026 - August 2026",
-    description: [
       "Built benchmarking pipelines for graph-conditioned LLMs, enabling systematic evaluation of graph-based context against text-only and context-enriched baselines on socially grounded sentiment analysis tasks.",
       "Automated prompt generation, model inference, and evaluation workflows, improving zero-shot Target F1 from 0.63 to 0.75 through controlled graph-conditioned prompting experiments.",
     ],
-    image: "experience/purdue-cs.jpeg",
+    image: "/experience/brands/purdue.svg",
   },
   {
     id: 3,
@@ -53,7 +44,7 @@ const experiences = [
       "Built a Python system using GPT-4 via OpenAI API to process 100K+ SQL records and generate tax reports.",
       "Designed Apache Spark ETL pipelines on Azure Data Lake to consolidate multi-source financial datasets.",
     ],
-    image: "experience/ey.png",
+    image: "/experience/ey.png",
   },
   {
     id: 4,
@@ -66,7 +57,7 @@ const experiences = [
       "CS 182: Foundations of Computer Science",
       "CS 193: Tools",
     ],
-    image: "experience/purdue-cs.jpeg",
+    image: "/experience/brands/purdue.svg",
   },
   {
     id: 6,
@@ -90,94 +81,28 @@ const experiences = [
       "Imputed missing data using PyCaret, improving data completeness by 25% and enhancing risk model accuracy.",
       "Created a PowerBI dashboard delivering live risk forecasts, enabling proactive supply chain issue management.",
     ],
-    image: "experience/caterpillar.png",
+    image: "/experience/brands/caterpillar.svg",
   },
 ];
 
 export const ExperienceSection = () => (
-  <section id="experience" className="py-24 px-4 sm:px-8 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5 pointer-events-none" />
-
-    <div className="max-w-3xl mx-auto relative z-10">
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-center">
-        Work <span className="text-primary">Experience</span>
-      </h2>
-
-      <div className="relative">
-        <div className="absolute left-6 top-3 bottom-3 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
-
-        <div className="space-y-6">
-          {experiences.map((exp, idx) => (
-            <ExperienceCard key={exp.id} exp={exp} index={idx} />
-          ))}
-        </div>
-      </div>
-    </div>
+  <section id="experience" className="content-section page-width">
+    <div className="section-heading"><span className="section-index">01 / EXPERIENCE</span><h2>Where I’ve contributed.</h2></div>
+    <div className="experience-list">{experiences.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</div>
   </section>
 );
 
-const ExperienceCard = ({ exp, index }) => {
-  const [ref, isVisible] = useScrollReveal();
-
+const ExperienceRow = ({ exp }) => {
+  const [ref, visible] = useScrollReveal();
+  const [company, location] = exp.company.split(" | ");
+  const brand = company === "Tesla" ? "tesla" : company.startsWith("Amazon") ? "aws" : company.startsWith("Purdue") ? "purdue" : company.startsWith("Ernst") ? "ey" : company === "Ciena" ? "ciena" : "caterpillar";
   return (
-    <div
-      ref={ref}
-      className="experience-entry relative pl-20 transition-all duration-700"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(24px)",
-        transitionDelay: `${index * 80}ms`,
-      }}
-    >
-      {/* Company logo node — w-12=48px at left-0, center at 24px; line is at left-6=24px */}
-      <div className="experience-logo absolute left-0 top-5 w-12 h-12 rounded-full bg-card border-2 border-primary/30 flex items-center justify-center z-10 shadow-lg shadow-primary/10">
-        <img
-          src={exp.image}
-          alt=""
-          className="w-full h-full object-cover rounded-full"
-          onError={(e) => {
-            e.target.style.display = "none";
-            e.target.nextSibling.style.display = "flex";
-          }}
-        />
-        <div className="w-full h-full rounded-full bg-primary/20 hidden items-center justify-center text-primary font-bold text-sm">
-          {exp.company.charAt(0)}
-        </div>
+    <article ref={ref} className={`experience-row reveal ${visible ? "is-visible" : ""}`}>
+      <div className="experience-company"><div className={`brand-box brand-${brand}`}><img src={exp.image} alt="" width="56" height="56" loading="lazy" /></div><div><h3>{company}</h3><p>{location}</p></div></div>
+      <div className="experience-body"><div className="role-heading"><h4>{exp.title}</h4><span className="experience-date">{exp.period}</span></div>
+        {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
+        <ul>{exp.description.map(line => <li key={line}><span className="bullet" aria-hidden="true">▶</span><span>{line}</span></li>)}</ul>
       </div>
-
-      {/* Card */}
-      <div {...pointerMotion} className="experience-card bg-card/60 backdrop-blur-sm border border-border/50 rounded-2xl p-5 sm:p-7 text-left hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-        <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
-          <div>
-            <h3 className="text-base sm:text-lg font-bold text-foreground leading-snug">
-              {exp.title}
-            </h3>
-            {exp.subtitle && (
-              <p className="text-xs text-muted-foreground mt-0.5">{exp.subtitle}</p>
-            )}
-            <p className="text-primary text-sm font-medium mt-1">{exp.company}</p>
-          </div>
-          <span className="shrink-0 text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 whitespace-nowrap">
-            {exp.period}
-          </span>
-        </div>
-
-        <ul className="space-y-2">
-          {exp.description.map((line, i) => (
-            <li
-              key={i}
-              className={`text-sm sm:text-[0.9rem] text-muted-foreground leading-relaxed ${
-                exp.noBullet ? "" : "flex items-start gap-2"
-              }`}
-            >
-              {!exp.noBullet && (
-                <span className="text-primary mt-[6px] shrink-0 text-[9px]">▶</span>
-              )}
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    </article>
   );
 };

@@ -1,6 +1,5 @@
-import { pointerMotion } from "../lib/pointerMotion";
 import {
-  Github,
+  ArrowUpRight,
   Terminal,
   Scan,
   Network,
@@ -129,94 +128,20 @@ const projects = [
 ];
 
 export const ProjectsSection = () => (
-  <section id="projects" className="py-24 px-4 sm:px-8 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-
-    <div className="max-w-6xl mx-auto relative z-10">
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center">
-        Featured <span className="text-primary">Projects</span>
-      </h2>
-      <p className="text-center text-muted-foreground mb-16 text-base max-w-2xl mx-auto">
-        A collection of things I&apos;ve built
-      </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-        {projects.map((project, idx) => (
-          <ProjectCard key={project.id} project={project} index={idx} />
-        ))}
-      </div>
-    </div>
+  <section id="projects" className="content-section page-width">
+    <div className="section-heading"><span className="section-index">02 / PROJECTS</span><h2>Ideas, implemented.</h2></div>
+    <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.id} project={project} index={index} />)}</div>
   </section>
 );
-
 const ProjectCard = ({ project, index }) => {
-  const [ref, isVisible] = useScrollReveal();
+  const [ref, visible] = useScrollReveal();
   const Icon = project.icon;
-
   return (
-    <div
-      ref={ref}
-      className="transition-all duration-600"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(28px)",
-        transitionDelay: `${(index % 3) * 80}ms`,
-      }}
-    >
-      <div {...pointerMotion} className="project-card group flex flex-col h-full bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
-        {/* Standardized icon header */}
-        <div className="relative flex items-center justify-center h-36 bg-gradient-to-br from-primary/15 via-primary/8 to-card/80 border-b border-border/40 flex-shrink-0">
-          {/* Category badge */}
-          <span className="absolute top-3 left-3 text-xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full bg-primary/15 text-primary border border-primary/25">
-            {project.category}
-          </span>
-
-          {/* Icon */}
-          <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-            <Icon size={26} className="text-primary" />
-          </div>
-
-          {/* GitHub icon — top right on hover */}
-          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-7 h-7 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center border border-border/60 shadow-md">
-              <Github size={12} className="text-foreground" />
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-5 flex flex-col flex-1">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="text-base font-bold text-foreground leading-snug">
-              {project.title}
-            </h3>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 p-1.5 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
-              aria-label={`GitHub — ${project.title}`}
-            >
-              <Github size={15} />
-            </a>
-          </div>
-
-          <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-1.5">
-            {project.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="px-2 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <a ref={ref} className={`project-entry reveal ${visible ? "is-visible" : ""}`} href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
+      <div className="project-meta"><span>{String(index + 1).padStart(2, "0")} / {project.category}</span><Icon size={20} strokeWidth={1.4} /></div>
+      <div className="project-title"><h3>{project.title}</h3><ArrowUpRight size={24} strokeWidth={1.5} /></div>
+      <p>{project.description}</p>
+      <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+    </a>
   );
 };
