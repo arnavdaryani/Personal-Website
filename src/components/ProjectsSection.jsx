@@ -16,6 +16,16 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const projects = [
   {
+    id: 12,
+    title: "Chess Position Recognition",
+    description:
+      "An Android app that turns chessboard photos into digital positions for analysis. Combines edge detection, board mapping, and a TensorFlow CNN to locate squares and identify pieces.",
+    tags: ["Android", "Flutter", "Computer Vision", "TensorFlow", "CNN"],
+    icon: Scan,
+    category: "ML / AI",
+    reportUrl: "/projects/chess-position-recognition.pdf",
+  },
+  {
     id: 1,
     title: "UNIX-Shell",
     description:
@@ -137,8 +147,8 @@ const ProjectCard = ({ project, index }) => {
   const [ref, visible] = useScrollReveal();
   const Icon = project.icon;
   return (
-    <a ref={ref} className={`project-entry reveal ${visible ? "is-visible" : ""}`} href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>
-      <div className="project-meta"><span>{String(index + 1).padStart(2, "0")} / {project.category}</span><Icon size={20} strokeWidth={1.4} /></div>
+    <a ref={ref} className={`project-entry reveal ${visible ? "is-visible" : ""}`} href={project.reportUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={project.reportUrl ? `${project.title} — view project poster (PDF)` : `${project.title} on GitHub`}>
+      <div className="project-meta"><span>{String(index + 1).padStart(2, "0")} / {project.category}{project.reportUrl ? " / PDF" : ""}</span><Icon size={20} strokeWidth={1.4} /></div>
       <div className="project-title"><h3>{project.title}</h3><ArrowUpRight size={24} strokeWidth={1.5} /></div>
       <p>{project.description}</p>
       <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
