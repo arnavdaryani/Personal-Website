@@ -20,10 +20,19 @@ const experiences = [
   {
     id: 1,
     title: "Undergraduate Research Assistant",
-    subtitle: "Advisors: Prof. Andres Bejarano & Prof. Dan Goldwasser",
+    subtitle: "Advisor: Prof. Andres Bejarano",
     company: "Purdue University | West Lafayette, IN",
     period: "January 2026 - August 2026",
-    description: "Explored how students use AI and how graph-based context shapes language-model predictions. The research combined studies of AI adoption with experiments in socially grounded sentiment analysis.",
+    description: "Studied how students use AI tools and how those tools fit into their learning. The research focused on adoption patterns and educational outcomes.",
+    image: "/experience/brands/purdue-linkedin.jpg",
+  },
+  {
+    id: 2,
+    title: "Undergraduate Research Assistant",
+    subtitle: "Advisor: Prof. Dan Goldwasser",
+    company: "Purdue University | West Lafayette, IN",
+    period: "January 2026 - August 2026",
+    description: "Explored how graph-based context shapes language-model predictions in socially grounded sentiment analysis. Compared prompting approaches through model evaluation and benchmarking experiments.",
     image: "/experience/brands/purdue-linkedin.jpg",
   },
   {
