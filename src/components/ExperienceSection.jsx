@@ -94,22 +94,17 @@ const workInfo = {
 };
 
 const ExperienceRow = ({ exp, work }) => {
-  const [company, location] = exp.company.split(" | ");
-  if (work) {
-    const info = workInfo[exp.id];
-    return (
-      <li className="experience-row">
-        <p className="work-heading"><a href={info.url} target="_blank" rel="noopener noreferrer">{company}</a><span className="work-date">{info.period}</span></p>
-        <p className="role-overview">{info.focus}</p>
-      </li>
-    );
-  }
+  const company = exp.company.split(" | ")[0];
+  const info = work ? workInfo[exp.id] : {
+    url: "https://www.purdue.edu/",
+    period: shortPeriod(exp.period),
+    focus: exp.description,
+  };
   return (
     <li className="experience-row">
-      <p className="role-heading"><span className="experience-date">{shortPeriod(exp.period)}:</span>{" "}{exp.title} @ <strong>{company}</strong></p>
-      <p className="role-location">{location}</p>
+      <p className="work-heading"><a href={info.url} target="_blank" rel="noopener noreferrer">{company}</a><span className="work-date">{info.period}</span></p>
+      <p className="role-overview">{info.focus}</p>
       {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
-      <p className="role-overview">{exp.description}</p>
     </li>
   );
 };
