@@ -1,5 +1,3 @@
-import { useScrollReveal } from "../hooks/useScrollReveal";
-
 const experiences = [
   {
     id: "tesla",
@@ -69,21 +67,30 @@ const experiences = [
   },
 ];
 
+const groups = [
+  { id: "experience", title: "Experience", entries: experiences.filter(exp => ["tesla", 0, 3, 6].includes(exp.id)) },
+  { id: "research", title: "Research", entries: experiences.filter(exp => [1, 2, 7].includes(exp.id)) },
+  { id: "teaching", title: "Teaching", entries: experiences.filter(exp => exp.id === 4) },
+];
+const shortPeriod = (period) => period.replace(/January/g, "Jan").replace(/September/g, "Sep").replace(/August/g, "Aug").replace(/June/g, "Jun").replace(" - ", " – ");
+
 export const ExperienceSection = () => (
-  <section id="experience" className="content-section page-width">
-    <div className="section-heading"><span className="section-index">01 / EXPERIENCE</span><h2>Where I’ve contributed.</h2></div>
-    <div className="experience-list">{experiences.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</div>
-  </section>
+  <>{groups.map(group => (
+    <section key={group.id} id={group.id} className="content-section page-width" aria-labelledby={`${group.id}-title`}>
+      <h2 id={`${group.id}-title`}>{group.title}</h2>
+      <div className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</div>
+    </section>
+  ))}</>
 );
 
 const ExperienceRow = ({ exp }) => {
-  const [ref, visible] = useScrollReveal();
   const [company, location] = exp.company.split(" | ");
-  const brand = company === "Tesla" ? "tesla" : company.startsWith("Amazon") ? "aws" : company.startsWith("Purdue") ? "purdue" : company.startsWith("Ernst") ? "ey" : company === "Ciena" ? "ciena" : "caterpillar";
   return (
-    <article ref={ref} className={`experience-row reveal ${visible ? "is-visible" : ""}`}>
-      <div className="experience-company"><div className={`brand-box brand-${brand}`}><img src={exp.image} alt="" width="56" height="56" loading="lazy" /></div><div><h3>{company}</h3><p>{location}</p></div></div>
-      <div className="experience-body"><div className="role-heading"><h4>{exp.title}</h4><span className="experience-date">{exp.period}</span></div>
+    <article className="experience-row">
+      <div className="brand-box"><img src={exp.image} alt="" width="36" height="36" loading="lazy" /></div>
+      <div>
+        <div className="role-heading"><h3>{company}</h3><span className="experience-date">{shortPeriod(exp.period)}</span></div>
+        <p className="role-title">{exp.title}<span className="location"><span className="location-separator"> · </span>{location}</span></p>
         {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
         <p className="role-overview">{exp.description}</p>
       </div>
