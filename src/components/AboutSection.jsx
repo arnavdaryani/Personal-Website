@@ -1,8 +1,9 @@
 export const AboutSection = () => (
   <section id="about" className="intro page-width" aria-labelledby="intro-title">
     <h1 id="intro-title">Arnav Daryani</h1>
-    <p className="intro-note">Computer Science at Purdue University</p>
+    <h2 className="welcome-title">Welcome!</h2>
     <div className="intro-copy">
+      <p>Hi, I’m Arnav!</p>
       <p>I’m a senior at Purdue studying computer science, with concentrations in Machine Intelligence and Algorithmic Foundations and a minor in Mathematics.</p>
       <p>Building scalable, end-to-end software and AI systems that solve challenging problems.</p>
     </div>

@@ -60,7 +60,7 @@ const experiences = [
 ];
 
 const groups = [
-  { id: "experience", title: "Experience", entries: experiences.filter(exp => ["tesla", 0, 3, 6].includes(exp.id)) },
+  { id: "experience", title: "Work History", entries: experiences.filter(exp => ["tesla", 0, 3, 6].includes(exp.id)) },
   { id: "research", title: "Research", entries: experiences.filter(exp => [1, 2, 7].includes(exp.id)) },
   { id: "teaching", title: "Teaching", entries: experiences.filter(exp => exp.id === 4) },
 ];
@@ -70,7 +70,7 @@ export const ExperienceSection = () => (
   <>{groups.map(group => (
     <section key={group.id} id={group.id} className="content-section page-width" aria-labelledby={`${group.id}-title`}>
       <h2 id={`${group.id}-title`}>{group.title}</h2>
-      <div className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</div>
+      <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</ul>
     </section>
   ))}</>
 );
@@ -78,13 +78,11 @@ export const ExperienceSection = () => (
 const ExperienceRow = ({ exp }) => {
   const [company, location] = exp.company.split(" | ");
   return (
-    <article className="experience-row">
-      <div>
-        <div className="role-heading"><h3>{company}</h3><span className="experience-date">{shortPeriod(exp.period)}</span></div>
-        <p className="role-title">{exp.title}<span className="location"><span className="location-separator"> · </span>{location}</span></p>
-        {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
-        <p className="role-overview">{exp.description}</p>
-      </div>
-    </article>
+    <li className="experience-row">
+      <p className="role-heading"><span className="experience-date">{shortPeriod(exp.period)}:</span>{" "}{exp.title} @ <strong>{company}</strong></p>
+      <p className="role-location">{location}</p>
+      {exp.subtitle && <p className="advisor">{exp.subtitle}</p>}
+      <p className="role-overview">{exp.description}</p>
+    </li>
   );
 };
