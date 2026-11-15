@@ -17,7 +17,7 @@ const experiences = [
     id: 2,
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Dan Goldwasser",
-    company: "Purdue University | West Lafayette, IN",
+    company: "Purdue Computer Science | West Lafayette, IN",
     period: "January 2026 - August 2026",
     description: "Graph-conditioned LLMs · Sentiment analysis · Model evaluation",
   },
@@ -88,7 +88,7 @@ const workInfo = {
 const ExperienceRow = ({ exp, work }) => {
   const company = exp.company.split(" | ")[0];
   const info = work ? workInfo[exp.id] : {
-    url: "https://www.purdue.edu/",
+    url: "https://www.cs.purdue.edu/",
     period: shortPeriod(exp.period),
     focus: exp.description,
   };
