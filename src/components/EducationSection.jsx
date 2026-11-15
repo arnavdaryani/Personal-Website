@@ -1,5 +1,6 @@
 const courses = [
   ["CS 471", "Introduction To Artificial Intelligence"],
+  ["CS 448", "Relational Database Systems"],
   ["CS 381", "Analysis of Algorithms"],
   ["CS 380", "Python Programming"],
   ["CS 373", "Data Mining & Machine Learning"],

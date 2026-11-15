@@ -1,17 +1,17 @@
 @import "tailwindcss" source("./");
 @theme {
-  --color-background: #fffff8;
+  --color-background: #ffffff;
   --color-foreground: #1f1e1d;
-  --color-card: #fffff8;
+  --color-card: #ffffff;
   --color-primary: #1f1e1d;
-  --color-primary-foreground: #fffff8;
+  --color-primary-foreground: #ffffff;
   --color-border: #dfdfd8;
   --color-muted: #f5f5ee;
   --color-muted-foreground: #595951;
   --color-secondary: #f5f5ee;
   --color-secondary-foreground: #1f1e1d;
 }
-:root { color-scheme: light; font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif; font-synthesis: none; background: #fffff8; color: #1f1e1d; }
+:root { color-scheme: light; font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif; font-synthesis: none; background: #ffffff; color: #1f1e1d; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 32px; }
 body { margin: 0; -webkit-font-smoothing: antialiased; }
@@ -55,7 +55,7 @@ h2 { font-size: 24px; font-weight: 700; line-height: 1.3; margin: 0 0 16px; }
 .coursework-courses { list-style: none; margin: 14px 0 0; padding: 0 0 0 16px; }
 .coursework-courses li { display: grid; grid-template-columns: 88px minmax(0,1fr); gap: 8px; padding: 4px 0; line-height: 1.5; }
 .coursework-code { color: #1f1e1d; white-space: nowrap; }
-.skip-link { position: absolute; top: -80px; left: 16px; z-index: 100; padding: 12px; background: #fffff8; }
+.skip-link { position: absolute; top: -80px; left: 16px; z-index: 100; padding: 12px; background: #ffffff; }
 .skip-link:focus { top: 8px; }
 @media (max-width: 600px) {
   .page-width { width: calc(100% - 40px); }
