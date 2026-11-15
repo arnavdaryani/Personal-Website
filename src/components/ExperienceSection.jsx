@@ -14,14 +14,6 @@ const experiences = [
     description: "AI agents · Billing operations · Distributed systems",
   },
   {
-    id: 1,
-    title: "Undergraduate Research Assistant",
-    subtitle: "Advisor: Prof. Andres Bejarano",
-    company: "Purdue University | West Lafayette, IN",
-    period: "January 2026 - August 2026",
-    description: "AI adoption · Educational outcomes",
-  },
-  {
     id: 2,
     title: "Undergraduate Research Assistant",
     subtitle: "Advisor: Prof. Dan Goldwasser",
@@ -61,7 +53,7 @@ const experiences = [
 
 const groups = [
   { id: "experience", title: "Work", entries: experiences.filter(exp => ["tesla", 0, 3, 6, 7].includes(exp.id)) },
-  { id: "research", title: "Research", entries: experiences.filter(exp => [1, 2].includes(exp.id)) },
+  { id: "research", title: "Research", entries: experiences.filter(exp => [2].includes(exp.id)) },
   { id: "teaching", title: "Teaching", entries: experiences.filter(exp => exp.id === 4) },
 ];
 const shortPeriod = (period) => period.replace(/January/g, "Jan").replace(/September/g, "Sep").replace(/August/g, "Aug").replace(/June/g, "Jun").replace(" - ", " – ");
