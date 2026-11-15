@@ -66,10 +66,10 @@ export const ExperienceSection = () => (
         <>
           <p className="role-heading">Undergraduate Teaching Assistant @ <strong>Purdue University</strong></p>
           <ul className="teaching-courses">
-            <li><a href="https://www.cs.purdue.edu/academic-programs/courses/canonical/cs251.html" target="_blank" rel="noopener noreferrer"><strong>CS 251</strong> · Data Structures &amp; Algorithms</a></li>
-            <li><a href="https://www.cs.purdue.edu/academic-programs/courses/canonical/cs250.html" target="_blank" rel="noopener noreferrer"><strong>CS 250</strong> · Computer Architecture</a></li>
-            <li><a href="https://www.cs.purdue.edu/academic-programs/courses/canonical/cs182.html" target="_blank" rel="noopener noreferrer"><strong>CS 182</strong> · Foundations of Computer Science</a></li>
-            <li><a href="https://www.purdueusb.com/initiatives/cs193" target="_blank" rel="noopener noreferrer"><strong>CS 193</strong> · Tools</a></li>
+            <li><a href="https://catalog.purdue.edu/search_advanced.php?search_database=Search&amp;search_db=Search&amp;location=3&amp;filter%5Bkeyword%5D=CS+25100&amp;filter%5Bexact_match%5D=1" target="_blank" rel="noopener noreferrer"><strong>CS 251</strong> · Data Structures &amp; Algorithms</a></li>
+            <li><a href="https://catalog.purdue.edu/search_advanced.php?search_database=Search&amp;search_db=Search&amp;location=3&amp;filter%5Bkeyword%5D=CS+25000&amp;filter%5Bexact_match%5D=1" target="_blank" rel="noopener noreferrer"><strong>CS 250</strong> · Computer Architecture</a></li>
+            <li><a href="https://catalog.purdue.edu/search_advanced.php?search_database=Search&amp;search_db=Search&amp;location=3&amp;filter%5Bkeyword%5D=CS+18200&amp;filter%5Bexact_match%5D=1" target="_blank" rel="noopener noreferrer"><strong>CS 182</strong> · Foundations of Computer Science</a></li>
+            <li><a href="https://catalog.purdue.edu/search_advanced.php?search_database=Search&amp;search_db=Search&amp;location=3&amp;filter%5Bkeyword%5D=CS+19300&amp;filter%5Bexact_match%5D=1" target="_blank" rel="noopener noreferrer"><strong>CS 193</strong> · Tools</a></li>
           </ul>
         </>
       ) : <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} work={group.id === "experience"} />)}</ul>}
