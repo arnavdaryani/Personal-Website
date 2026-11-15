@@ -2,8 +2,7 @@ const projects = [
   {
     id: 12,
     title: "Chess Position Recognition",
-    description:
-      "An Android app that turns chessboard photos into digital positions for analysis. Combines edge detection, board mapping, and a TensorFlow CNN to locate squares and identify pieces.",
+    description: "Chessboard recognition · Piece classification · Edge detection",
     tags: ["Android", "Flutter", "Computer Vision", "TensorFlow", "CNN"],
     category: "ML / AI",
     reportUrl: "/projects/chess-position-recognition.pdf",
@@ -11,8 +10,7 @@ const projects = [
   {
     id: 1,
     title: "UNIX-Shell",
-    description:
-      "A UNIX shell written in C and C++, with command parsing, subshells, wildcard expansion, and an interactive line editor.",
+    description: "Command parsing · Subshells · Wildcard expansion · Line editing",
     tags: ["C++", "C", "Flex", "Bison", "UNIX"],
     category: "Systems",
     githubUrl: "https://github.com/arnavdaryani/UNIX-Shell",
@@ -20,8 +18,7 @@ const projects = [
   {
     id: 2,
     title: "MotionPose",
-    description:
-      "A web application that brings 3D pose estimation and face tracking into live performances.",
+    description: "3D pose estimation · Face tracking · Live performance",
     tags: ["Python", "OpenCV", "PyTorch", "YOLO", "WebSocket API"],
     category: "ML / AI",
     githubUrl: "https://github.com/murrayrl/motionpose",
