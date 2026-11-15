@@ -4,7 +4,7 @@ export const AboutSection = () => (
     <p className="intro-note">Computer Science at Purdue University</p>
     <div className="intro-copy">
       <p>I’m a senior at Purdue studying computer science, with concentrations in Machine Intelligence and Algorithmic Foundations and a minor in Mathematics.</p>
-      <p>My work spans AI agents, computer vision, and systems programming. I enjoy taking an idea through to a working application.</p>
+      <p>Building scalable, end-to-end software and AI systems that solve challenging problems.</p>
     </div>
     <div className="intro-links" aria-label="Find me online">
       <a href="https://github.com/arnavdaryani" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
