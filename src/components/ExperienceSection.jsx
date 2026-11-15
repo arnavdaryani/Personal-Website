@@ -70,7 +70,18 @@ export const ExperienceSection = () => (
   <>{groups.map(group => (
     <section key={group.id} id={group.id} className="content-section page-width" aria-labelledby={`${group.id}-title`}>
       <h2 id={`${group.id}-title`}>{group.title}</h2>
-      <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</ul>
+      {group.id === "teaching" ? (
+        <>
+          <p className="role-heading">Undergraduate Teaching Assistant @ <strong>Purdue University</strong></p>
+          <p className="role-location">Aug 2024 – Aug 2026 · West Lafayette, IN</p>
+          <ul className="teaching-courses">
+            <li><strong>CS 251</strong> · Data Structures &amp; Algorithms</li>
+            <li><strong>CS 250</strong> · Computer Architecture</li>
+            <li><strong>CS 182</strong> · Foundations of Computer Science</li>
+            <li><strong>CS 193</strong> · Tools</li>
+          </ul>
+        </>
+      ) : <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</ul>}
     </section>
   ))}</>
 );

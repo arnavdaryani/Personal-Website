@@ -33,7 +33,7 @@ export const ProjectsSection = () => (
 );
 const ProjectEntry = ({ project }) => (
   <article className="project-entry">
-    <h3 className="project-title"><a href={project.reportUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={project.reportUrl ? `${project.title} — view project poster` : `${project.title} on GitHub`}>{project.title} <span aria-hidden="true">↗</span></a></h3>
+    <h3 className="project-title">{project.title}</h3>
     <p>{project.description}</p>
     <div className="project-tags">{project.tags.join(" · ")}</div>
   </article>
