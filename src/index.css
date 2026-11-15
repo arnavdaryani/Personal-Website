@@ -64,3 +64,7 @@ h2 { font-size: 25px; font-weight: 650; line-height: 1.3; letter-spacing: -.02em
 .teaching-courses { list-style: disc; padding-left: 22px; margin: 12px 0 0; font-size: 15px; line-height: 1.7; }
 .teaching-courses li { margin-bottom: 6px; }
 .teaching-courses strong { font-weight: 600; }
+
+.work-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; margin: 0; font-size: 16px; line-height: 1.6; }
+.work-heading a { font-weight: 600; }
+.work-date { color: #73726c; font-size: 14px; }

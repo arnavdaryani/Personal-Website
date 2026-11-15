@@ -60,8 +60,8 @@ const experiences = [
 ];
 
 const groups = [
-  { id: "experience", title: "Work History", entries: experiences.filter(exp => ["tesla", 0, 3, 6].includes(exp.id)) },
-  { id: "research", title: "Research", entries: experiences.filter(exp => [1, 2, 7].includes(exp.id)) },
+  { id: "experience", title: "Work", entries: experiences.filter(exp => ["tesla", 0, 3, 6, 7].includes(exp.id)) },
+  { id: "research", title: "Research", entries: experiences.filter(exp => [1, 2].includes(exp.id)) },
   { id: "teaching", title: "Teaching", entries: experiences.filter(exp => exp.id === 4) },
 ];
 const shortPeriod = (period) => period.replace(/January/g, "Jan").replace(/September/g, "Sep").replace(/August/g, "Aug").replace(/June/g, "Jun").replace(" - ", " – ");
@@ -73,7 +73,6 @@ export const ExperienceSection = () => (
       {group.id === "teaching" ? (
         <>
           <p className="role-heading">Undergraduate Teaching Assistant @ <strong>Purdue University</strong></p>
-          <p className="role-location">Aug 2024 – Aug 2026 · West Lafayette, IN</p>
           <ul className="teaching-courses">
             <li><strong>CS 251</strong> · Data Structures &amp; Algorithms</li>
             <li><strong>CS 250</strong> · Computer Architecture</li>
@@ -81,13 +80,30 @@ export const ExperienceSection = () => (
             <li><strong>CS 193</strong> · Tools</li>
           </ul>
         </>
-      ) : <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} />)}</ul>}
+      ) : <ul className="experience-list">{group.entries.map(exp => <ExperienceRow key={exp.id} exp={exp} work={group.id === "experience"} />)}</ul>}
     </section>
   ))}</>
 );
 
-const ExperienceRow = ({ exp }) => {
+const workInfo = {
+  tesla: { url: "https://www.tesla.com/", period: "Sep 2026 – Present", focus: "Applied AI · Financial systems" },
+  0: { url: "https://aws.amazon.com/", period: "Summer 2026", focus: "Software engineering · AI agents · Billing operations" },
+  3: { url: "https://www.ey.com/", period: "Summer 2025", focus: "Software engineering · Tax automation · AI tooling" },
+  6: { url: "https://www.ciena.com/", period: "Summer 2024", focus: "Software engineering · Network automation · IPv6" },
+  7: { url: "https://www.caterpillar.com/", period: "Aug 2023 – May 2024", focus: "Undergraduate research · Supply-chain risk · Predictive modeling" },
+};
+
+const ExperienceRow = ({ exp, work }) => {
   const [company, location] = exp.company.split(" | ");
+  if (work) {
+    const info = workInfo[exp.id];
+    return (
+      <li className="experience-row">
+        <p className="work-heading"><a href={info.url} target="_blank" rel="noopener noreferrer">{company}</a><span className="work-date">{info.period}</span></p>
+        <p className="role-overview">{info.focus}</p>
+      </li>
+    );
+  }
   return (
     <li className="experience-row">
       <p className="role-heading"><span className="experience-date">{shortPeriod(exp.period)}:</span>{" "}{exp.title} @ <strong>{company}</strong></p>
